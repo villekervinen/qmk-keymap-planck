@@ -11,6 +11,11 @@ enum planck_layers {
   _GAMING
 };
 
+enum custom_keycodes {
+  CIRC = SAFE_RANGE,
+  TILD,
+};
+
 #define DEFAULT DF(_DEFAULT)
 #define GAMING DF(_GAMING)
 
@@ -49,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
-    _______,SE_CIRC,SE_AT  ,KC_HASH,KC_PERC,SE_TILD,SE_BSLS,SE_SLSH,SE_RPRN,SE_RCBR,SE_RBRC,KC_DEL ,
+    _______,CIRC   ,SE_AT  ,KC_HASH,KC_PERC,TILD   ,SE_BSLS,SE_SLSH,SE_RPRN,SE_RCBR,SE_RBRC,KC_DEL ,
     _______,KC_EXLM,SE_QUO2,KC_BSLS,SE_DLR ,SE_PIPE,SE_AMPR,SE_EQL ,SE_LPRN,SE_LCBR,SE_LBRC,SE_ASTR,
     _______,_______,_______,_______,_______,_______,SE_GRV ,SE_QUES,SE_LESS,SE_GRTR,SE_PLUS,_______,
     _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______
@@ -114,3 +119,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint32_t layer_state_set_user(uint32_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case CIRC:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LSFT("]")" ");
+      }
+      break;
+    case TILD:
+      if (record->event.pressed) {
+        SEND_STRING(SS_ALGR("]")" ");
+      }
+      break;
+  }
+  return true;
+};
