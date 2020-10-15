@@ -34,14 +34,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  * | Shift |   Z   |   X   |   C   |   V   |   B   |   N   |   M   |   ,   |   .   |   -   | Shift |
  * |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- * |       |  Ctrl |  Alt  |  GUI  | Lower | Enter | Space | Raise |       |       |       | Gaming|
+ * |       |       |       |  GUI  | Lower | Enter | Space | Raise |  Alt  |       |       | Gaming|
  * `-----------------------------------------------------------------------------------------------'
  */
 [_DEFAULT] = LAYOUT_planck_grid(
     KC_TAB ,KC_Q   ,KC_W   ,KC_E   ,KC_R   ,KC_T   ,KC_Y   ,KC_U   ,KC_I   ,KC_O   ,KC_P   ,KC_BSPC,
     ESC    ,KC_A   ,KC_S   ,KC_D   ,KC_F   ,KC_G   ,KC_H   ,KC_J   ,KC_K   ,KC_L   ,SE_OSLH,SE_AE  ,
     KC_LSFT,KC_Z   ,KC_X   ,KC_C   ,KC_V   ,KC_B   ,KC_N   ,KC_M   ,KC_COMM,KC_DOT ,SE_MINS,KC_RSFT,
-    _______,KC_LCTL,KC_LALT,KC_LGUI,LOWER  ,KC_ENT ,KC_SPC ,RAISE  ,_______,_______,_______,GAMING
+    _______,_______,_______,KC_LGUI,LOWER  ,KC_ENT ,KC_SPC ,RAISE  ,KC_LALT,_______,_______,GAMING
 ),
 
 /* Lower
